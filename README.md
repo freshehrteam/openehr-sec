@@ -1,2 +1,2 @@
-# openEHR standard project structure
-This is a standard structure oroginally developed by freshEHR for openEHR-related projects.
+# openEHR SEC Experimental work
+This is a standard structure originally developed by freshEHR for openEHR-related projects.
