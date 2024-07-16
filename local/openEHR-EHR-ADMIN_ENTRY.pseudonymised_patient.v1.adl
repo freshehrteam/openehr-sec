@@ -30,12 +30,12 @@ Created to align with FHIR Patient resource but use does not imply that a FHIR p
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9be1cd1e02c69859fe0945df6b11417d">
+		["MD5-CAM-1.0.1"] = <"31a4627786baa3ca54503ba5cd08c432">
 		["build_uid"] = <"1a435e2e-9616-39d3-8daa-bfa4982607f4">
 	>
 
 definition
-	ADMIN_ENTRY[at0000] matches {    -- pseudonymised_patient
+	ADMIN_ENTRY[at0000] matches {    -- Pseudonymised patient
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
@@ -95,7 +95,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"pseudonymised_patient">
+					text = <"Pseudonymised patient">
 					description = <"Pseudo-anonymised details of a patient to support AQL population querying, and to define the content of an AQL proxy subject object.">
 				>
 				["at0001"] = <
