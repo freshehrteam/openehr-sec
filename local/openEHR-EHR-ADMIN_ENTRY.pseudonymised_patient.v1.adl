@@ -30,7 +30,7 @@ Created to align with FHIR Patient resource but use does not imply that a FHIR p
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"31a4627786baa3ca54503ba5cd08c432">
+		["MD5-CAM-1.0.1"] = <"9eb5759998a135aabd7d988e449b73d4">
 		["build_uid"] = <"1a435e2e-9616-39d3-8daa-bfa4982607f4">
 	>
 
@@ -62,7 +62,11 @@ definition
 					ELEMENT[at0002] occurrences matches {0..1} matches {    -- gender
 						value matches {
 							DV_TEXT matches {*}
-							DV_CODED_TEXT matches {*}
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[ac0000]
+								}
+							}
 						}
 					}
 					ELEMENT[at0004] occurrences matches {0..1} matches {    -- birthSex
@@ -91,6 +95,7 @@ definition
 	}
 
 ontology
+	terminologies_available = <"AdministrativeGender", ...>
 	term_definitions = <
 		["en"] = <
 			items = <
@@ -138,6 +143,23 @@ ontology
 					text = <"address">
 					description = <"The patient's usual address.">
 				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			items = <
+				["ac0000"] = <
+					text = <"Administrative Gender">
+					description = <"The gender of a person used for administrative purposes.">
+				>
+			>
+		>
+	>
+	constraint_binding = <
+		["AdministrativeGender"] = <
+			items = <
+				["ac0000"] = <terminology://fhir.hl7.org/Valueset/$expand?url=http://hl7.org/fhir/ValueSet/administrative-gender>
 			>
 		>
 	>
