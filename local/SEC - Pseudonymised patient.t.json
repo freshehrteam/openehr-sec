@@ -23,8 +23,8 @@
       "original_publisher" : "",
       "custodian_namespace" : "",
       "PARENT:MD5-CAM-1.0.1" : "005501C1FA493A4838F5F1121F2870EC",
-      "sem_ver" : "1.0.0-alpha.1",
-      "MD5-CAM-1.0.1" : "b9a05b3a1da0b77b0cc5a5a0eb2ef874",
+      "sem_ver" : "1.0.0-alpha.2",
+      "MD5-CAM-1.0.1" : "69eb2ff49952b72e52f3fbdea3201cce",
       "build_uid" : ""
     },
     "details" : {
@@ -411,7 +411,7 @@
       "documentation" : {
         "en" : {
           "/data[at0001]/items[at0002]" : {
-            "vset_description" : "title='AdministrativeGender' description= 'The gender of a person used for administrative purposes.'  system=http://hl7.org/fhir/administrative-gender   url=http://hl7.org/fhir/ValueSet/administrative-gender"
+            "vset_description" : "title='Biological sex'&description='The biological sex of a person determined at birth.'&system=http://snomed.info/sct&url=https://healthterminologies.gov.au/fhir/ValueSet/biological-sex-1"
           }
         }
       }
@@ -426,7 +426,53 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "ADMIN_ENTRY",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0004.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_TEXT",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "terminologyId" : {
+                        "value" : "BiologicalSex"
+                      },
+                      "constraint" : [ "ac0.1" ],
+                      "selectedTerminologies" : [ "BiologicalSex" ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
@@ -435,7 +481,11 @@
       "termDefinitions" : {
         "en" : { }
       },
-      "termBindings" : { },
+      "termBindings" : {
+        "BiologicalSex" : {
+          "ac0.1" : "terminology://fhir.hl7.org/ValueSet/$expand?url=https://healthterminologies.gov.au/fhir/ValueSet/biological-sex-1"
+        }
+      },
       "terminologyExtracts" : { },
       "valueSets" : { }
     },
